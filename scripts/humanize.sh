@@ -9,7 +9,7 @@ INPUT="${1:?Usage: humanize.sh <file-or-text> [tone-hint]}"
 TONE="${2:-auto}"
 
 API_KEY="${EVOLINK_API_KEY:?Set EVOLINK_API_KEY first. Get one at https://evolink.ai/signup}"
-MODEL="${EVOLINK_MODEL:-claude-sonnet-4-5-20250929}"
+MODEL="${EVOLINK_MODEL:-claude-opus-4-6}"
 API_URL="https://api.evolink.ai/v1/messages"
 
 # --- Security: Path validation for local files ---

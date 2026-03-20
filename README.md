@@ -4,6 +4,8 @@ Make AI-generated text sound natural. Supports English and Chinese.
 
 Paste any text — blog post, email, essay, report — and get back a clean, human-sounding version with a readability score.
 
+Powered by [Evolink.ai](https://evolink.ai?utm_source=github&utm_medium=skill&utm_campaign=humanize)
+
 ## Install
 
 ```bash
@@ -111,8 +113,8 @@ Humanized Output + Score + Changelog
 
 | Variable | Default | Description |
 |---|---|---|
-| `EVOLINK_API_KEY` | (required) | Your Evolink API key |
-| `EVOLINK_MODEL` | `claude-sonnet-4-5-20250929` | Model to use |
+| `EVOLINK_API_KEY` | (required) | Your [Evolink API](https://evolink.ai?utm_source=github&utm_medium=skill&utm_campaign=humanize) key |
+| `EVOLINK_MODEL` | `claude-opus-4-6` | Model for processing. You can switch to any model supported by the [Evolink API](https://docs.evolink.ai?utm_source=github&utm_medium=skill&utm_campaign=humanize), such as `claude-sonnet-4-5-20250929`, `gpt-4o`, etc. |
 | `HUMANIZE_SAFE_DIR` | `~/.openclaw/workspace` | Allowed file directory |
 
 ## Security & Usage Limits
@@ -121,7 +123,7 @@ Humanized Output + Score + Changelog
 - **Sensitive files blocked**: `.env`, `.ssh`, `config.json`, private keys
 - **Size limit**: 5MB for text files
 - **MIME validation**: Only `text/*` and `application/json` files accepted
-- No data is stored. Text is sent to Evolink API for processing and discarded.
+- No data is stored. Text is sent to [Evolink API](https://api.evolink.ai?utm_source=github&utm_medium=skill&utm_campaign=humanize) for processing and discarded.
 
 ## Examples
 
@@ -129,17 +131,23 @@ Humanized Output + Score + Changelog
 
 > The new software update serves as a testament to the company's unwavering commitment to innovation. Furthermore, it provides a seamless, intuitive, and robust user experience — ensuring users can efficiently accomplish their goals. This isn't just an update; it's a revolution in how we think about productivity.
 
-### After (human)
+### After
 
-> The update adds batch processing, keyboard shortcuts, and offline mode. Early feedback from beta testers has been positive — most say tasks feel faster now.
+> They shipped batch processing, keyboard shortcuts, and offline mode last Tuesday. I've been using the shortcuts for a week — saves me maybe ten minutes a day. Nothing revolutionary, but the offline thing is genuinely useful on flights.
 
 ### 改写前 (AI味重)
 
 > 此外，该项目的成功实施标志着公司在数字化转型道路上迈出了关键性的一步，充分彰显了团队在技术创新领域的深厚积累与不懈追求。
 
-### 改写后 (自然)
+### 改写后
 
-> 项目上线后，后台处理速度提升了 40%。团队花了三个月调优，主要瓶颈在数据库索引。
+> 上个月项目上线了，数据库查询从 2 秒降到了 300 毫秒。说实话过程挺折腾的，光索引优化就反复改了五六版，最后是老张半夜想到的方案跑通的。
+
+## Links
+
+- [Evolink.ai](https://evolink.ai?utm_source=github&utm_medium=skill&utm_campaign=humanize) — AI API platform
+- [Evolink API Docs](https://docs.evolink.ai?utm_source=github&utm_medium=skill&utm_campaign=humanize) — Full API reference
+- [Get API Key](https://evolink.ai/signup?utm_source=github&utm_medium=skill&utm_campaign=humanize) — Free signup
 
 ## License
 
@@ -149,4 +157,4 @@ MIT
 
 Pattern detection logic informed by [Wikipedia: Signs of AI writing](https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing).
 
-Powered by [Evolink.ai](https://evolink.ai)
+Powered by [Evolink.ai](https://evolink.ai?utm_source=github&utm_medium=skill&utm_campaign=humanize)
