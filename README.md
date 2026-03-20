@@ -1,6 +1,6 @@
 # Humanize Text — Remove AI Writing Patterns
 
-Make AI-generated text sound natural. Supports English and Chinese.
+Make AI-generated text sound natural. Supports 9 languages.
 
 Paste any text — blog post, email, essay, report — and get back a clean, human-sounding version with a readability score.
 
@@ -39,9 +39,6 @@ bash scripts/humanize.sh "draft.txt"
 # Humanize with a specific tone
 bash scripts/humanize.sh "draft.txt" "casual blog post"
 
-# Humanize Chinese text
-bash scripts/humanize.sh "文章草稿.txt" "技术博客"
-
 # Pipe text directly
 echo "This is a testament to the transformative power of innovation." | bash scripts/humanize.sh -
 ```
@@ -50,9 +47,9 @@ echo "This is a testament to the transformative power of innovation." | bash scr
 
 Just ask your agent:
 - "Humanize this text"
-- "帮我去掉这段文字的 AI 味"
 - "Make this sound more natural"
-- "这篇文章 AI 感太重了，帮我改一下"
+- "Remove the AI tone from this paragraph"
+- "Rewrite this to sound like a real person wrote it"
 
 ## What It Does
 
@@ -85,7 +82,14 @@ Every run produces:
 ## Supported Languages
 
 - English
-- 中文 (Simplified Chinese)
+- Chinese (中文)
+- Japanese (日本語)
+- Korean (한국어)
+- Russian (Русский)
+- Hindi (हिन्दी)
+- German (Deutsch)
+- French (Français)
+- Italian (Italiano)
 
 Language is auto-detected. No configuration needed.
 
@@ -135,19 +139,11 @@ Humanized Output + Score + Changelog
 
 > The new software update includes batch processing, keyboard shortcuts, and an offline mode. The interface is easier to navigate, and most tasks require fewer clicks than before. It's a solid improvement to the workflow.
 
-### 改写前 (AI味重)
-
-> 此外，该项目的成功实施标志着公司在数字化转型道路上迈出了关键性的一步，充分彰显了团队在技术创新领域的深厚积累与不懈追求。
-
-### 改写后
-
-> 这个项目上线后，后台查询速度从 2 秒降到了 300 毫秒。整个优化过程前后迭代了五六个版本，主要瓶颈在数据库索引上。
-
 ## Links
 
 - [Evolink.ai](https://evolink.ai?utm_source=github&utm_medium=skill&utm_campaign=humanize) — AI API platform
 - [API Docs (EN)](https://docs.evolink.ai/en/api-manual/language-series/claude/claude-messages-api?utm_source=github&utm_medium=skill&utm_campaign=humanize) — API reference
-- [API Docs (中文)](https://docs.evolink.ai/api-manual/language-series/claude/claude-messages-api?utm_source=github&utm_medium=skill&utm_campaign=humanize) — API 文档
+- [API Docs (中文)](https://docs.evolink.ai/api-manual/language-series/claude/claude-messages-api?utm_source=github&utm_medium=skill&utm_campaign=humanize) — API documentation
 - [Get API Key](https://evolink.ai/signup?utm_source=github&utm_medium=skill&utm_campaign=humanize) — Free signup
 
 ## License

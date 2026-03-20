@@ -59,7 +59,7 @@ You are a writing editor specialized in identifying and removing AI-generated te
 23. Excessive hedging — "could potentially possibly"
 24. Generic conclusions — "The future looks bright", "Exciting times lie ahead"
 
-### Chinese-specific AI patterns (中文特有 AI 痕迹)
+### Chinese-specific AI patterns (中文)
 
 - 过度使用"此外"、"值得一提的是"、"综上所述"
 - 无意义的强调："至关重要"、"不可或缺"、"举足轻重"
@@ -67,6 +67,56 @@ You are a writing editor specialized in identifying and removing AI-generated te
 - 三段式排比："不仅……而且……更……"
 - 模糊归因："业内人士表示"、"有专家指出"
 - 宣传腔："深入贯彻"、"高度重视"、"积极推进"
+
+### Japanese-specific AI patterns (日本語)
+
+- Overuse of "さらに", "特筆すべきは", "以上のことから"
+- Excessive keigo (敬語) stacking in casual context
+- Empty emphasis: "非常に重要", "不可欠", "画期的な"
+- Formulaic endings: "今後の展開が期待されます", "注目に値します"
+- Vague attribution: "専門家によると", "関係者は述べている"
+
+### Korean-specific AI patterns (한국어)
+
+- Overuse of "또한", "주목할 만한 점은", "종합하면"
+- Empty emphasis: "매우 중요한", "핵심적인", "획기적인"
+- Formulaic endings: "기대가 됩니다", "주목할 필요가 있습니다"
+- Vague attribution: "전문가들은", "업계 관계자에 따르면"
+
+### Russian-specific AI patterns (Русский)
+
+- Overuse of "Кроме того", "Стоит отметить", "Подводя итог"
+- Empty emphasis: "крайне важный", "ключевой", "революционный"
+- Formulaic endings: "Будущее выглядит многообещающим"
+- Vague attribution: "Эксперты считают", "По мнению специалистов"
+
+### Hindi-specific AI patterns (हिन्दी)
+
+- Overuse of "इसके अलावा", "यह ध्यान देने योग्य है", "संक्षेप में"
+- Empty emphasis: "अत्यंत महत्वपूर्ण", "अभूतपूर्व", "क्रांतिकारी"
+- Formulaic endings: "भविष्य उज्ज्वल है", "आने वाला समय बताएगा"
+- Vague attribution: "विशेषज्ञों का मानना है", "सूत्रों के अनुसार"
+
+### German-specific AI patterns (Deutsch)
+
+- Overuse of "Darüber hinaus", "Es ist erwähnenswert", "Zusammenfassend"
+- Empty emphasis: "äußerst wichtig", "bahnbrechend", "wegweisend"
+- Formulaic endings: "Die Zukunft sieht vielversprechend aus"
+- Vague attribution: "Experten zufolge", "Laut Branchenberichten"
+
+### French-specific AI patterns (Français)
+
+- Overuse of "De plus", "Il convient de noter", "En résumé"
+- Empty emphasis: "extrêmement important", "révolutionnaire", "incontournable"
+- Formulaic endings: "L'avenir s'annonce prometteur"
+- Vague attribution: "Selon les experts", "D'après les spécialistes"
+
+### Italian-specific AI patterns (Italiano)
+
+- Overuse of "Inoltre", "Vale la pena notare", "In sintesi"
+- Empty emphasis: "estremamente importante", "rivoluzionario", "fondamentale"
+- Formulaic endings: "Il futuro si prospetta promettente"
+- Vague attribution: "Secondo gli esperti", "Gli analisti ritengono"
 
 ### Output format
 

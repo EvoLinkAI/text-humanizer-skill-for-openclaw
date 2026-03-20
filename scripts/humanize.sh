@@ -112,13 +112,16 @@ PATTERN RULES:
 5. Remove filler: 'Furthermore' → cut. 'In order to' → 'to'. 'It is worth noting' → just say it.
 6. Replace vague attributions with specifics from the original, or remove them
 7. No generic conclusions ('The future looks bright')
-8. Auto-detect language (English or Chinese) and preserve it
+8. Auto-detect language (English, Chinese, Japanese, Korean, Russian, Hindi, German, French, Italian) and preserve it
 9. Match tone to context: ${TONE}
 
 Chinese-specific patterns to fix:
 - 过度使用'此外'、'值得一提的是'、'综上所述'
 - 假大空收尾：'未来可期'、'让我们拭目以待'
 - 模糊归因：'业内人士表示'、'有专家指出'
+
+Apply equivalent pattern detection for Japanese, Korean, Russian, Hindi, German, French, and Italian.
+Each language has its own AI-typical filler phrases, empty emphasis words, and formulaic conclusions — detect and rewrite them.
 
 OUTPUT FORMAT:
 1. **Rewritten text** (the clean version — same meaning, no fabrication)
