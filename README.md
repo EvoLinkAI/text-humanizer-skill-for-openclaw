@@ -114,7 +114,7 @@ Humanized Output + Score + Changelog
 | Variable | Default | Description |
 |---|---|---|
 | `EVOLINK_API_KEY` | (required) | Your Evolink API key |
-| `EVOLINK_MODEL` | `claude-opus-4-6` | Model for processing. You can switch to any model supported by the [Evolink API](https://docs.evolink.ai?utm_source=github&utm_medium=skill&utm_campaign=humanize), such as `claude-sonnet-4-5-20250929`, `gpt-4o`, etc. |
+| `EVOLINK_MODEL` | `claude-opus-4-6` | Model for processing. You can switch to any model supported by the [Evolink API](https://docs.evolink.ai/en/api-manual/language-series/claude/claude-messages-api?utm_source=github&utm_medium=skill&utm_campaign=humanize), such as `claude-sonnet-4-5-20250929`, `gpt-4o`, etc. |
 | `HUMANIZE_SAFE_DIR` | `~/.openclaw/workspace` | Allowed file directory |
 
 ## Security & Usage Limits
@@ -146,7 +146,8 @@ Humanized Output + Score + Changelog
 ## Links
 
 - [Evolink.ai](https://evolink.ai?utm_source=github&utm_medium=skill&utm_campaign=humanize) — AI API platform
-- [API Docs](https://docs.evolink.ai?utm_source=github&utm_medium=skill&utm_campaign=humanize) — Full API reference
+- [API Docs (EN)](https://docs.evolink.ai/en/api-manual/language-series/claude/claude-messages-api?utm_source=github&utm_medium=skill&utm_campaign=humanize) — API reference
+- [API Docs (中文)](https://docs.evolink.ai/api-manual/language-series/claude/claude-messages-api?utm_source=github&utm_medium=skill&utm_campaign=humanize) — API 文档
 - [Get API Key](https://evolink.ai/signup?utm_source=github&utm_medium=skill&utm_campaign=humanize) — Free signup
 
 ## License
