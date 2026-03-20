@@ -66,8 +66,17 @@ get_content() {
     if [ "$INPUT" = "-" ]; then
         # Read from stdin
         cat
+    elif [[ "$INPUT" == /* || "$INPUT" == ./* || "$INPUT" == ../* ]]; then
+        # Looks like a file path — validate and read
+        if [ ! -f "$INPUT" ]; then
+            echo "Error: File not found: $INPUT" >&2
+            exit 1
+        fi
+        local safe_path
+        safe_path=$(validate_file "$INPUT")
+        cat "$safe_path"
     elif [ -f "$INPUT" ]; then
-        # Local file — validate first
+        # Existing file with relative name
         local safe_path
         safe_path=$(validate_file "$INPUT")
         cat "$safe_path"
