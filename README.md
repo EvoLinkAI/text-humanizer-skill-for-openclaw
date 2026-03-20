@@ -133,7 +133,7 @@ Humanized Output + Score + Changelog
 
 ### After
 
-> The update added batch processing, keyboard shortcuts, and offline mode. Beta testers reported faster task completion. The offline feature works without an internet connection, which is useful for travel.
+> The new software update includes batch processing, keyboard shortcuts, and an offline mode. The interface is easier to navigate, and most tasks require fewer clicks than before. It's a solid improvement to the workflow.
 
 ### 改写前 (AI味重)
 
@@ -141,7 +141,7 @@ Humanized Output + Score + Changelog
 
 ### 改写后
 
-> 项目上线后，后台查询从 2 秒降到了 300 毫秒。优化过程中主要瓶颈在数据库索引，前后迭代了五六个版本才最终跑通。
+> 这个项目上线后，后台查询速度从 2 秒降到了 300 毫秒。整个优化过程前后迭代了五六个版本，主要瓶颈在数据库索引上。
 
 ## Links
 
