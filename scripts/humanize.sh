@@ -16,31 +16,41 @@ API_URL="https://api.evolink.ai/v1/messages"
 validate_file() {
     local filepath="$1"
     
-    # 1. Resolve absolute path
+    # 1. Resolve absolute path (realpath -e: file MUST exist, resolves all symlinks)
     local resolved
-    resolved=$(realpath -m "$filepath" 2>/dev/null || echo "$filepath")
-    
-    # 2. Scope check
-    SAFE_DIR="${HUMANIZE_SAFE_DIR:-/root/.openclaw/workspace}"
+    resolved=$(realpath -e "$filepath" 2>/dev/null)
+    if [ -z "$resolved" ]; then
+        echo "Error: File not found or path contains broken symlinks: $filepath" >&2
+        exit 1
+    fi
+
+    # 2. Reject symlinks pointing outside safe dir
+    if [ -L "$filepath" ]; then
+        echo "Error: Symlinks are not allowed for security. Use the actual file path." >&2
+        exit 1
+    fi
+
+    # 3. Scope check with trailing slash to prevent prefix bypass
+    #    e.g., /home/user/.openclaw/workspace_evil would NOT match /home/user/.openclaw/workspace/
+    SAFE_DIR="${HUMANIZE_SAFE_DIR:-$HOME/.openclaw/workspace}"
+    # Normalize: ensure SAFE_DIR ends with /
+    SAFE_DIR="${SAFE_DIR%/}/"
     if [[ "$resolved" != "$SAFE_DIR"* ]]; then
         echo "Error: Access restricted to $SAFE_DIR" >&2
         exit 1
     fi
 
-    # 3. Filename blacklist
-    case "$(basename "$resolved")" in
-        .env*|*.key|id_rsa*|authorized_keys|.bash_history|config.json|.ssh)
+    # 4. Filename blacklist
+    local basename
+    basename=$(basename "$resolved")
+    case "$basename" in
+        .env*|*.key|id_rsa*|authorized_keys|.bash_history|config.json|.ssh|*.pem|*.p12|*.pfx|shadow|passwd)
             echo "Error: Access to sensitive files is blocked." >&2
             exit 1
             ;;
     esac
 
-    # 4. File existence and size check
-    if [ ! -f "$resolved" ]; then
-        echo "Error: File not found: $resolved" >&2
-        exit 1
-    fi
-
+    # 5. File size check (5MB limit)
     local size
     size=$(stat -c%s "$resolved")
     if [ "$size" -gt 5242880 ]; then
@@ -48,7 +58,7 @@ validate_file() {
         exit 1
     fi
 
-    # 5. MIME type validation
+    # 6. MIME type validation
     if command -v file &>/dev/null; then
         local mime
         mime=$(file --mime-type -b "$resolved")
@@ -141,7 +151,6 @@ ESCAPED_USER=$(json_escape "$USER_MSG")
 RESPONSE=$(curl -s "$API_URL" \
     -H "Content-Type: application/json" \
     -H "Authorization: Bearer $API_KEY" \
-    -H "anthropic-version: 2023-06-01" \
     -d "{
         \"model\": \"$MODEL\",
         \"max_tokens\": 4096,
