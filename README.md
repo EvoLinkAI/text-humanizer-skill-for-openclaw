@@ -1,5 +1,7 @@
 # Humanize Text
 
+**English** | [中文](README_zh.md) | [日本語](README_ja.md) | [한국어](README_ko.md) | [Русский](README_ru.md) | [हिन्दी](README_hi.md) | [Deutsch](README_de.md) | [Français](README_fr.md) | [Italiano](README_it.md)
+
 Remove AI writing patterns from any text. Supports 29+ languages.
 
 Paste a blog post, email, essay, or report — get back a clean version that sounds like a real person wrote it.
