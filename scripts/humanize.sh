@@ -1,0 +1,152 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+# Humanize Text — Remove AI writing patterns via Evolink API
+# Usage: bash humanize.sh <file-or-text> [tone-hint]
+#   tone-hint: blog, academic, email, casual (default: auto-detect)
+
+INPUT="${1:?Usage: humanize.sh <file-or-text> [tone-hint]}"
+TONE="${2:-auto}"
+
+API_KEY="${EVOLINK_API_KEY:?Set EVOLINK_API_KEY first. Get one at https://evolink.ai/signup}"
+MODEL="${EVOLINK_MODEL:-claude-sonnet-4-5-20250929}"
+API_URL="https://api.evolink.ai/v1/messages"
+
+# --- Security: Path validation for local files ---
+validate_file() {
+    local filepath="$1"
+    
+    # 1. Resolve absolute path
+    local resolved
+    resolved=$(realpath -m "$filepath" 2>/dev/null || echo "$filepath")
+    
+    # 2. Scope check
+    SAFE_DIR="${HUMANIZE_SAFE_DIR:-/root/.openclaw/workspace}"
+    if [[ "$resolved" != "$SAFE_DIR"* ]]; then
+        echo "Error: Access restricted to $SAFE_DIR" >&2
+        exit 1
+    fi
+
+    # 3. Filename blacklist
+    case "$(basename "$resolved")" in
+        .env*|*.key|id_rsa*|authorized_keys|.bash_history|config.json|.ssh)
+            echo "Error: Access to sensitive files is blocked." >&2
+            exit 1
+            ;;
+    esac
+
+    # 4. File existence and size check
+    if [ ! -f "$resolved" ]; then
+        echo "Error: File not found: $resolved" >&2
+        exit 1
+    fi
+
+    local size
+    size=$(stat -c%s "$resolved")
+    if [ "$size" -gt 5242880 ]; then
+        echo "Error: File exceeds 5MB limit." >&2
+        exit 1
+    fi
+
+    # 5. MIME type validation
+    if command -v file &>/dev/null; then
+        local mime
+        mime=$(file --mime-type -b "$resolved")
+        if [[ ! "$mime" =~ ^(text/|application/json|inode/x-empty) ]]; then
+            echo "Error: Unsupported file type ($mime). Only text files accepted." >&2
+            exit 1
+        fi
+    fi
+
+    echo "$resolved"
+}
+
+# --- Extract input content ---
+get_content() {
+    if [ "$INPUT" = "-" ]; then
+        # Read from stdin
+        cat
+    elif [ -f "$INPUT" ]; then
+        # Local file — validate first
+        local safe_path
+        safe_path=$(validate_file "$INPUT")
+        cat "$safe_path"
+    else
+        # Treat as raw text
+        echo "$INPUT"
+    fi
+}
+
+CONTENT=$(get_content)
+
+if [ -z "$CONTENT" ]; then
+    echo "Error: No content provided." >&2
+    exit 1
+fi
+
+# Truncate if extremely long (keep first ~50K chars for API)
+CONTENT=$(echo "$CONTENT" | head -c 50000)
+
+# --- Build prompt ---
+SYSTEM_PROMPT="You are a writing editor specialized in removing AI-generated text patterns. Make text sound natural and human.
+
+RULES:
+1. Scan for all 24 common AI writing patterns (significance inflation, promotional language, AI vocabulary like 'delve/tapestry/landscape/crucial/robust/seamless', filler phrases, chatbot artifacts, etc.)
+2. Rewrite flagged sections with natural alternatives
+3. Preserve the core meaning — don't change facts
+4. Vary sentence length and structure
+5. Use simple verbs ('is', 'has') instead of pretentious alternatives ('serves as', 'boasts')
+6. Remove filler: 'Furthermore' → cut. 'In order to' → 'to'. 'It is worth noting' → just say it.
+7. Replace vague attributions with specifics or remove them
+8. No generic conclusions ('The future looks bright')
+9. Auto-detect language (English or Chinese) and preserve it
+10. Match tone to context: ${TONE}
+
+Chinese-specific patterns to fix:
+- 过度使用'此外'、'值得一提的是'、'综上所述'
+- 假大空收尾：'未来可期'、'让我们拭目以待'
+- 模糊归因：'业内人士表示'、'有专家指出'
+
+OUTPUT FORMAT:
+1. **Rewritten text** (the clean version)
+2. **AI Score**: Rate the ORIGINAL text 0-100 (0=human, 100=pure AI)
+3. **Changes**: Brief list of what was fixed"
+
+USER_MSG="Humanize this text:\n\n${CONTENT}"
+
+# --- JSON escape ---
+json_escape() {
+    printf '%s' "$1" | python3 -c 'import json,sys; print(json.dumps(sys.stdin.read()))'
+}
+
+ESCAPED_SYSTEM=$(json_escape "$SYSTEM_PROMPT")
+ESCAPED_USER=$(json_escape "$USER_MSG")
+
+# --- Call Evolink API ---
+RESPONSE=$(curl -s "$API_URL" \
+    -H "Content-Type: application/json" \
+    -H "Authorization: Bearer $API_KEY" \
+    -H "anthropic-version: 2023-06-01" \
+    -d "{
+        \"model\": \"$MODEL\",
+        \"max_tokens\": 4096,
+        \"system\": $ESCAPED_SYSTEM,
+        \"messages\": [{\"role\": \"user\", \"content\": $ESCAPED_USER}]
+    }")
+
+# --- Extract and display result ---
+echo "$RESPONSE" | python3 -c "
+import json, sys
+try:
+    data = json.load(sys.stdin)
+    if 'content' in data:
+        for block in data['content']:
+            if block.get('type') == 'text':
+                print(block['text'])
+    elif 'error' in data:
+        print(f\"Error: {data['error'].get('message', 'Unknown error')}\", file=sys.stderr)
+        sys.exit(1)
+except Exception as e:
+    print(f'Error parsing response: {e}', file=sys.stderr)
+    sys.exit(1)
+"
