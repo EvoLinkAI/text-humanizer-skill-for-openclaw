@@ -113,7 +113,7 @@ Humanized Output + Score + Changelog
 
 | Variable | Default | Description |
 |---|---|---|
-| `EVOLINK_API_KEY` | (required) | Your [Evolink API](https://evolink.ai?utm_source=github&utm_medium=skill&utm_campaign=humanize) key |
+| `EVOLINK_API_KEY` | (required) | Your Evolink API key |
 | `EVOLINK_MODEL` | `claude-opus-4-6` | Model for processing. You can switch to any model supported by the [Evolink API](https://docs.evolink.ai?utm_source=github&utm_medium=skill&utm_campaign=humanize), such as `claude-sonnet-4-5-20250929`, `gpt-4o`, etc. |
 | `HUMANIZE_SAFE_DIR` | `~/.openclaw/workspace` | Allowed file directory |
 
@@ -123,7 +123,7 @@ Humanized Output + Score + Changelog
 - **Sensitive files blocked**: `.env`, `.ssh`, `config.json`, private keys
 - **Size limit**: 5MB for text files
 - **MIME validation**: Only `text/*` and `application/json` files accepted
-- No data is stored. Text is sent to [Evolink API](https://api.evolink.ai?utm_source=github&utm_medium=skill&utm_campaign=humanize) for processing and discarded.
+- No data is stored. Text is sent to Evolink API for processing and discarded.
 
 ## Examples
 
@@ -133,7 +133,7 @@ Humanized Output + Score + Changelog
 
 ### After
 
-> They shipped batch processing, keyboard shortcuts, and offline mode last Tuesday. I've been using the shortcuts for a week — saves me maybe ten minutes a day. Nothing revolutionary, but the offline thing is genuinely useful on flights.
+> The update added batch processing, keyboard shortcuts, and offline mode. Beta testers reported faster task completion. The offline feature works without an internet connection, which is useful for travel.
 
 ### 改写前 (AI味重)
 
@@ -141,12 +141,12 @@ Humanized Output + Score + Changelog
 
 ### 改写后
 
-> 上个月项目上线了，数据库查询从 2 秒降到了 300 毫秒。说实话过程挺折腾的，光索引优化就反复改了五六版，最后是老张半夜想到的方案跑通的。
+> 项目上线后，后台查询从 2 秒降到了 300 毫秒。优化过程中主要瓶颈在数据库索引，前后迭代了五六个版本才最终跑通。
 
 ## Links
 
 - [Evolink.ai](https://evolink.ai?utm_source=github&utm_medium=skill&utm_campaign=humanize) — AI API platform
-- [Evolink API Docs](https://docs.evolink.ai?utm_source=github&utm_medium=skill&utm_campaign=humanize) — Full API reference
+- [API Docs](https://docs.evolink.ai?utm_source=github&utm_medium=skill&utm_campaign=humanize) — Full API reference
 - [Get API Key](https://evolink.ai/signup?utm_source=github&utm_medium=skill&utm_campaign=humanize) — Free signup
 
 ## License
