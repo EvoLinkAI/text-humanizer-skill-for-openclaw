@@ -76,7 +76,6 @@ Just ask your agent:
 Every run produces:
 
 - **Rewritten text** — clean, human-sounding version
-- **AI Score** — 0-100 rating (how "AI" the original sounded)
 - **Change log** — what was modified and why
 
 ## Supported Languages
@@ -100,7 +99,7 @@ Input Text
     ↓
 [Layer 1: Pattern Scanner]
     Checks 24 AI patterns + vocabulary blacklist (500+ words)
-    Outputs AI Score (0-100)
+    Outputs list of detected patterns
     ↓
 [Layer 2: Rewriter]
     Replaces flagged phrases with natural alternatives

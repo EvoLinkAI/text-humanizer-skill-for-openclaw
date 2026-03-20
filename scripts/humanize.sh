@@ -125,8 +125,7 @@ Each language has its own AI-typical filler phrases, empty emphasis words, and f
 
 OUTPUT FORMAT:
 1. **Rewritten text** (the clean version — same meaning, no fabrication)
-2. **AI Score**: Rate the ORIGINAL text 0-100 (0=human, 100=pure AI)
-3. **Changes**: Brief list of what was fixed"
+2. **Changes**: Brief list of what was fixed"
 
 USER_MSG="Humanize this text:\n\n${CONTENT}"
 
