@@ -62,7 +62,7 @@ echo "Your text here" | bash scripts/humanize.sh -
 
 ## 配置
 
-1. 在 [evolink.ai/signup](https://evolink.ai/signup?utm_source=github&utm_medium=skill&utm_campaign=humanize) 获取 API Key
+1. 在 [evolink.ai/signup](https://evolink.ai/signup?utm_source=github&utm_medium=readme&utm_campaign=text-humanizer-skill-for-openclaw?utm_source=github&utm_medium=skill&utm_campaign=humanize) 获取 API Key
 2. 设置环境变量：
 
 ```bash
@@ -87,7 +87,7 @@ export EVOLINK_API_KEY="your-key-here"
 - [源代码](https://github.com/EvoLinkAI/text-humanizer-skill-for-openclaw) — GitHub 仓库
 - [API 文档 (EN)](https://docs.evolink.ai/en/api-manual/language-series/claude/claude-messages-api?utm_source=github&utm_medium=skill&utm_campaign=humanize) — API 参考
 - [API 文档 (中文)](https://docs.evolink.ai/cn/api-manual/language-series/claude/claude-messages-api?utm_source=github&utm_medium=skill&utm_campaign=humanize) — API 文档
-- [获取 API Key](https://evolink.ai/signup?utm_source=github&utm_medium=skill&utm_campaign=humanize) — 免费注册
+- [获取 API Key](https://evolink.ai/signup?utm_source=github&utm_medium=readme&utm_campaign=text-humanizer-skill-for-openclaw?utm_source=github&utm_medium=skill&utm_campaign=humanize) — 免费注册
 
 ## 许可证
 

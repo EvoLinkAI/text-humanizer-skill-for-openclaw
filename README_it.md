@@ -62,7 +62,7 @@ La lingua viene rilevata automaticamente. Nessuna configurazione necessaria.
 
 ## Configurazione
 
-1. Ottieni una chiave API su [evolink.ai/signup](https://evolink.ai/signup?utm_source=github&utm_medium=skill&utm_campaign=humanize)
+1. Ottieni una chiave API su [evolink.ai/signup](https://evolink.ai/signup?utm_source=github&utm_medium=readme&utm_campaign=text-humanizer-skill-for-openclaw?utm_source=github&utm_medium=skill&utm_campaign=humanize)
 2. Imposta la variabile d'ambiente:
 
 ```bash
@@ -73,7 +73,7 @@ export EVOLINK_API_KEY="your-key-here"
 
 - [Codice sorgente](https://github.com/EvoLinkAI/text-humanizer-skill-for-openclaw) — GitHub
 - [Documentazione API (EN)](https://docs.evolink.ai/en/api-manual/language-series/claude/claude-messages-api?utm_source=github&utm_medium=skill&utm_campaign=humanize)
-- [Ottieni chiave API](https://evolink.ai/signup?utm_source=github&utm_medium=skill&utm_campaign=humanize) — Registrazione gratuita
+- [Ottieni chiave API](https://evolink.ai/signup?utm_source=github&utm_medium=readme&utm_campaign=text-humanizer-skill-for-openclaw?utm_source=github&utm_medium=skill&utm_campaign=humanize) — Registrazione gratuita
 
 ## Licenza
 

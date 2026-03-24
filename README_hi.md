@@ -62,7 +62,7 @@ echo "Your text here" | bash scripts/humanize.sh -
 
 ## सेटअप
 
-1. [evolink.ai/signup](https://evolink.ai/signup?utm_source=github&utm_medium=skill&utm_campaign=humanize) पर API कुंजी प्राप्त करें
+1. [evolink.ai/signup](https://evolink.ai/signup?utm_source=github&utm_medium=readme&utm_campaign=text-humanizer-skill-for-openclaw?utm_source=github&utm_medium=skill&utm_campaign=humanize) पर API कुंजी प्राप्त करें
 2. एनवायरनमेंट वेरिएबल सेट करें:
 
 ```bash
@@ -73,7 +73,7 @@ export EVOLINK_API_KEY="your-key-here"
 
 - [सोर्स कोड](https://github.com/EvoLinkAI/text-humanizer-skill-for-openclaw) — GitHub
 - [API दस्तावेज़ (EN)](https://docs.evolink.ai/en/api-manual/language-series/claude/claude-messages-api?utm_source=github&utm_medium=skill&utm_campaign=humanize)
-- [API कुंजी प्राप्त करें](https://evolink.ai/signup?utm_source=github&utm_medium=skill&utm_campaign=humanize) — मुफ़्त पंजीकरण
+- [API कुंजी प्राप्त करें](https://evolink.ai/signup?utm_source=github&utm_medium=readme&utm_campaign=text-humanizer-skill-for-openclaw?utm_source=github&utm_medium=skill&utm_campaign=humanize) — मुफ़्त पंजीकरण
 
 ## लाइसेंस
 

@@ -62,7 +62,7 @@ echo "Your text here" | bash scripts/humanize.sh -
 
 ## 설정
 
-1. [evolink.ai/signup](https://evolink.ai/signup?utm_source=github&utm_medium=skill&utm_campaign=humanize)에서 API 키를 발급받으세요
+1. [evolink.ai/signup](https://evolink.ai/signup?utm_source=github&utm_medium=readme&utm_campaign=text-humanizer-skill-for-openclaw?utm_source=github&utm_medium=skill&utm_campaign=humanize)에서 API 키를 발급받으세요
 2. 환경 변수를 설정하세요:
 
 ```bash
@@ -87,7 +87,7 @@ export EVOLINK_API_KEY="your-key-here"
 - [소스 코드](https://github.com/EvoLinkAI/text-humanizer-skill-for-openclaw) — GitHub 저장소
 - [API 문서 (EN)](https://docs.evolink.ai/en/api-manual/language-series/claude/claude-messages-api?utm_source=github&utm_medium=skill&utm_campaign=humanize)
 - [API 문서 (中文)](https://docs.evolink.ai/cn/api-manual/language-series/claude/claude-messages-api?utm_source=github&utm_medium=skill&utm_campaign=humanize)
-- [API 키 발급](https://evolink.ai/signup?utm_source=github&utm_medium=skill&utm_campaign=humanize) — 무료 가입
+- [API 키 발급](https://evolink.ai/signup?utm_source=github&utm_medium=readme&utm_campaign=text-humanizer-skill-for-openclaw?utm_source=github&utm_medium=skill&utm_campaign=humanize) — 무료 가입
 
 ## 라이선스
 

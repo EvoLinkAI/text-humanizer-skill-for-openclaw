@@ -62,7 +62,7 @@ Language is auto-detected. No configuration needed.
 
 ## Setup
 
-1. Get an API key at [evolink.ai/signup](https://evolink.ai/signup?utm_source=github&utm_medium=skill&utm_campaign=humanize)
+1. Get an API key at [evolink.ai/signup](https://evolink.ai/signup?utm_source=github&utm_medium=readme&utm_campaign=text-humanizer-skill-for-openclaw?utm_source=github&utm_medium=skill&utm_campaign=humanize)
 2. Set the environment variable:
 
 ```bash
@@ -113,7 +113,7 @@ This skill's code, runtime instructions, and resource requirements are consisten
 - [Source Code](https://github.com/EvoLinkAI/text-humanizer-skill-for-openclaw) — GitHub repository
 - [API Docs (EN)](https://docs.evolink.ai/en/api-manual/language-series/claude/claude-messages-api?utm_source=github&utm_medium=skill&utm_campaign=humanize) — API reference
 - [API Docs (中文)](https://docs.evolink.ai/cn/api-manual/language-series/claude/claude-messages-api?utm_source=github&utm_medium=skill&utm_campaign=humanize) — API documentation
-- [Get API Key](https://evolink.ai/signup?utm_source=github&utm_medium=skill&utm_campaign=humanize) — Free signup
+- [Get API Key](https://evolink.ai/signup?utm_source=github&utm_medium=readme&utm_campaign=text-humanizer-skill-for-openclaw?utm_source=github&utm_medium=skill&utm_campaign=humanize) — Free signup
 
 ## License
 
